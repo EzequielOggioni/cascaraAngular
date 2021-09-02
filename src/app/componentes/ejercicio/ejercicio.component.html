@@ -1,0 +1,70 @@
+<div *ngIf="personaArray.length !== 0" class="container">
+
+    <div class="row">
+  
+      <table class="table table-striped table-bordered">
+  
+        <thead>
+  
+          <tr>
+  
+            <th  scope="col">Id</th>
+  
+            <th  scope="col">Nombre</th>
+  
+            <th  scope="col">Apellido</th>
+  
+            <th  scope="col">Dni</th>
+  
+            <th  scope="col">Modificar Persona</th>
+  
+  
+  
+          </tr>
+  
+        </thead>
+  
+        <tbody>
+  
+          <tr *ngFor="let persona of personaArray">                  
+  
+            <td>
+              <label *ngIf="modificando != persona.id">{{persona.id}}</label>
+              <input type="text" *ngIf="modificando== persona.id" [(ngModel)]="persona.id" >
+            
+            </td>
+  
+            <td><label *ngIf="modificando != persona.id">{{persona.nombre}}</label>
+              <input type="text" *ngIf="modificando== persona.id" [(ngModel)]="persona.nombre" >
+            
+            </td>
+  
+            <td><label *ngIf="modificando != persona.id">{{persona.apellido}}</label>
+              <input type="text" *ngIf="modificando== persona.id" [(ngModel)]="persona.apellido" >
+            
+            </td>
+  
+            <td><label *ngIf="modificando != persona.id">{{persona.dni}}</label>
+              <input type="text" *ngIf="modificando== persona.id" [(ngModel)]="persona.dni" >
+            
+            </td>
+  
+            <td>
+              
+              <button *ngIf="modificando != persona.id"  (click)="ModificarPersona(persona.id)" class="btn btn-warning"> Modificar</button>
+              <button *ngIf="modificando == persona.id"  (click)="ModificarPersona(-1)" class="btn btn-warning"> Guardar</button>
+            </td>       
+            
+          </tr>
+          
+        </tbody>
+        
+      </table>
+      
+    </div>
+    <div>
+    <button   (click)="mostrar()"> ver Personas</button>
+
+  </div>
+
+  </div>

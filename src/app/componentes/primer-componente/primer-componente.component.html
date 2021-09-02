@@ -1,0 +1,22 @@
+<form>
+    <div class="row">
+
+        <label>{{nombreProyecto}} </label>
+        <input type="button" (click)=cambiarValor() value=" Cambiar">
+        <input type="button" (click)=salir() value=" salir">
+    </div>
+    <div *ngIf="nombreProyecto!='azul'">
+        <div *ngFor="let item of nombres" class="row">
+            <label>Hola estamos en el componente primero </label>
+            <input type="number" [value]="item.dni">
+            <input type="text" [value]="item.apellido" id="txtNombrse">
+            <input type="text" [class]="miClase" [value]="item.nombre" (input)=cambiarNombreProyecto() id="txtNombre">
+            <input type="button" (click)=mostrarEnAlert(nombreProyecto) value=" Mostrar">
+        </div>
+    </div>
+    <div class="row">
+        <select (input)=mostrarSeleccionado() id="optPersonas">
+            <option *ngFor="let item of nombres" value={{item.apellido}}>{{item.nombre}} - {{item.apellido}} </option>
+        </select>
+    </div>
+</form>
