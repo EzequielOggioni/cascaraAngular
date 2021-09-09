@@ -2,5 +2,13 @@
 
 <p>Value: {{ name }}</p>
 <p>Valid: </p>
+<div *ngFor="let prov of provincias" >
+    {{prov.nombre }}
+    </div>
+    
+<router-outlet></router-outlet>
+
+
+
 
 <button (click)="setValue()">Set value</button>

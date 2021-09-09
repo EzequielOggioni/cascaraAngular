@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { EjercicioComponent } from './componentes/ejercicio/ejercicio.component';
 import { NoEncontradaComponent } from './componentes/no-encontrada/no-encontrada.component';
 import { MenuComponent } from './componentes/menu/menu.component';
+import { VisorComponent } from './componentes/visor/visor.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,16 @@ import { MenuComponent } from './componentes/menu/menu.component';
     FormularioComponent,
     EjercicioComponent,
     NoEncontradaComponent,
-    MenuComponent
+    MenuComponent,
+    VisorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

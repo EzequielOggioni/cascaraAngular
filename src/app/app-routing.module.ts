@@ -7,10 +7,15 @@ import { PrimerComponenteComponent } from './componentes/primer-componente/prime
 import { CustodiaGuard } from './helpers/custodia.guard';
 
 const routes: Routes = [
-  {path: 'ejercicio', component: EjercicioComponent, canActivate: [CustodiaGuard]},
-  {path: 'formulario', component: FormularioComponent, canActivate: [CustodiaGuard] },
-  {path: '', component: PrimerComponenteComponent },
-  {path: '**', component: NoEncontradaComponent }
+  { path: 'ejercicio', component: EjercicioComponent, canActivate: [CustodiaGuard] },
+  { path: 'ejercicio/:datoEntrada', component: EjercicioComponent, canActivate: [CustodiaGuard] },
+  { path: 'ejercicios', redirectTo: 'ejercicio' },
+  {
+    path: 'formulario', component: FormularioComponent, canActivate: [CustodiaGuard],
+    children: [{ path: 'aaa', component: PrimerComponenteComponent }]
+  },
+  { path: '', component: PrimerComponenteComponent },
+  { path: '**', component: NoEncontradaComponent }
 ];
 
 @NgModule({

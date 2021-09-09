@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Persona } from 'src/app/entidades/persona';
 
 @Component({
@@ -14,12 +15,20 @@ export class PrimerComponenteComponent implements OnInit {
   opcionSeleccionado: string  = '0';
   
 
-  constructor() {
+  @Input() miValor!:string;
+
+  constructor(  private router: Router) {
 
     this.nombreProyecto = "mi proyecto";
     this.modelo="";
     this.miClase= "rojo";
     this.nombres = [];
+
+    // if(localStorage.getItem('token') == 'válido'){
+    //   this.router.navigate(['/formulario']);
+    // }
+
+
   }
   ngOnInit(): void {
   }
@@ -28,6 +37,7 @@ export class PrimerComponenteComponent implements OnInit {
     localStorage.setItem('token', 'válido');
     this.nombreProyecto = "otro proyecto";
     this.miClase="azul";
+    this.router.navigate(['/formulario']);
   }
   salir(){
     localStorage.removeItem('token');
